@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Sub Shop</title>
+    
+<link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Sub Way 2.0</h1>
+    <p>Make a delicious custom-made sub in seconds</p>
+</header>
+
+<nav>
+    <a href="#menu">Menu</a>
+    <a href="#order">Order Online</a>
+    <a href="#contact">Contact Us</a>
+</nav>
+
+<section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-item">
+        <h3>Classic Italian Sub</h3>
+        <p>A delicious combination of salami, pepperoni, ham, and provolone cheese with lettuce, tomato, and our special sauce.</p>
+    </div>
+    <div class="menu-item">
+        <h3>Veggie Delight Sub</h3>
+        <p>A healthy mix of fresh veggies including lettuce, tomato, cucumber, bell peppers, and a choice of dressing.</p>
+    </div>
+    <div class="menu-item">
+        <h3>Chicken Bacon Ranch Sub</h3>
+        <p>Grilled chicken, crispy bacon, lettuce, tomato, and ranch dressing for the perfect blend of flavors.</p>
+    </div>
+    <div class="menu-item">
+        <h3>BBQ Pulled Pork Sub</h3>
+        <p>Tender pulled pork with BBQ sauce, topped with coleslaw for a mouthwatering experience.</p>
+    </div>
+</section>
+
+<section id="order">
+    <h2>Order Online</h2>
+    <p>Ready to make your own custom sub? Fill out the form below to place your order!</p>
+    <form action="submit_order.php" method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="sub">Choose Your Sub:</label>
+        <select id="sub" name="sub">
+            <option value="italian">Classic Italian Sub</option>
+            <option value="veggie">Veggie Delight Sub</option>
+            <option value="chicken">Chicken Bacon Ranch Sub</option>
+            <option value="bbq">BBQ Pulled Pork Sub</option>
+        </select>
+
+        <label for="special">Special Requests:</label>
+        <textarea id="special" name="special" rows="4" placeholder="Add any special instructions here..."></textarea>
+
+        <input type="submit" value="Place Order">
+    </form>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a question or feedback? Get in touch with us below!</p>
+    <form action="submit_contact.php" method="POST">
+        <label for="contact_name">Your Name:</label>
+        <input type="text" id="contact_name" name="contact_name" required>
+
+        <label for="contact_email">Your Email:</label>
+        <input type="email" id="contact_email" name="contact_email" required>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <input type="submit" value="Send Message">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Custom Sub Shop. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
