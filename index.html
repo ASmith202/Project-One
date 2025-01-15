@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Sub Shop</title>
+
+    <style>
+        #menu h2 {
+            text-align: center;
+        }
+    </style>
     
 <link rel="stylesheet" href="styles.css">
 
@@ -16,6 +22,9 @@
     <p>Make a delicious custom-made sub in seconds</p>
 </header>
 
+<img src="3 Sub Pic.jpg" alt="3 Sub pic"> <img src="3 Sub Pic.jpg" alt="3 Sub pic">
+
+
 <nav>
     <a href="#menu">Menu</a>
     <a href="#order">Order Online</a>
@@ -24,22 +33,92 @@
 
 <section id="menu">
     <h2>Our Menu</h2>
+
+    <div class="menu-item"> 
+        <img src="Measure Sub.jpg" alt="Ruler Sub" width="880" height="320">
+
+        <h3>Select Your Size:</h3>
+        <button class="ingredient-button" onclick="selectSize('Snack')">Snack</button>
+        <button class="ingredient-button" onclick="selectSize('6 inch')">6 inch</button>
+        <button class="ingredient-button" onclick="selectSize('12 inch')">12 inch</button>
+        <button class="ingredient-button" onclick="selectSize('24 inch')">24 inch</button>
+        <button class="ingredient-button" onclick="selectSize('Party Size')">Party Size</button>
+    </div>
+
+
+
     <div class="menu-item">
-        <h3>Classic Italian Sub</h3>
-        <p>A delicious combination of salami, pepperoni, ham, and provolone cheese with lettuce, tomato, and our special sauce.</p>
+        <img src="Bread Pic 3.jpg" alt="Bread Pic" width="880" height="320">
+        <h3>Select Your Bread:</h3> 
+        <button class="ingredient-button" onclick="selectBread('Italian')">Italian</button>
+        <button class="ingredient-button" onclick="selectBread('Italian Herb & Cheese')">Italian Herb & Cheese</button>
+        <button class="ingredient-button" onclick="selectBread('Wheat')">Wheat</button>
+        <button class="ingredient-button" onclick="selectBread('Multi-Grain')">Multi-Grain</button>
+        <button class="ingredient-button" onclick="selectBread('Honey-Oat')">Honey-Oat</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="Assorted Meat Pic.avif" alt="Meat Pic" width="880" height="320">
+        <h3>Select your Protein:</h3>
+        <button class="ingredient-button" onclick="selectProtein('Chicken')">Chicken</button>
+        <button class="ingredient-button" onclick="selectProtein('Pepperoni')">Pepperoni</button>
+        <button class="ingredient-button" onclick="selectProtein('Salami')">Salami</button>
+        <button class="ingredient-button" onclick="selectProtein('Roast Beef')">Roast Beef</button>
+        <button class="ingredient-button" onclick="selectProtein('Turkey')">Turkey</button>
+        <button class="ingredient-button" onclick="selectProtein('Tofu')">Tofu</button>
+        <button class="ingredient-button" onclick="selectProtein('Ham')">Ham</button>
+        <button class="ingredient-button" onclick="selectProtein('Steak')">Steak</button>
+        <button class="ingredient-button" onclick="selectProtein('Fish')">Fish</button>
     </div>
     <div class="menu-item">
-        <h3>Veggie Delight Sub</h3>
-        <p>A healthy mix of fresh veggies including lettuce, tomato, cucumber, bell peppers, and a choice of dressing.</p>
+        <img src="Assorted Veggie Pic.jpeg" alt="Veggie Pic" width="880" height="320">
+        <h3>Select your Toppings:</h3>
+        <button class="ingredient-button" onclick="selectTopping('Lettuce')">Lettuce</button>
+        <button class="ingredient-button" onclick="selectTopping('Onion')">Onion</button>
+        <button class="ingredient-button" onclick="selectTopping('Tomatoes')">Tomatoes</button>
+        <button class="ingredient-button" onclick="selectTopping('Spinach')">Spinach</button>
+        <button class="ingredient-button" onclick="selectTopping('Banana Peppers')">Banana Peppers</button>
+        <button class="ingredient-button" onclick="selectTopping('Jalapeno')">Jalapeno</button>
+        <button class="ingredient-button" onclick="selectTopping('Green Pepper')">Green Pepper</button>
+        <button class="ingredient-button" onclick="selectTopping('Olives')">Olives</button>
+        <button class="ingredient-button" onclick="selectTopping('Pickles')">Pickles</button>
+        <button class="ingredient-button" onclick="selectTopping('Mushrooms')">Mushrooms</button>
+        <button class="ingredient-button" onclick="selectTopping('Hummus')">Hummus</button>
+        <button class="ingredient-button" onclick="selectTopping('Guacamole')">Guacamole</button>
     </div>
     <div class="menu-item">
-        <h3>Chicken Bacon Ranch Sub</h3>
-        <p>Grilled chicken, crispy bacon, lettuce, tomato, and ranch dressing for the perfect blend of flavors.</p>
+        <img src="Assorted Cheese Pic.jpeg" alt="Cheese Pic" width="880" height="320">
+
+        <h3>Select your Cheese:</h3>
+        <button class="ingredient-button" onclick="selectCheese('American')">American</button>
+        <button class="ingredient-button" onclick="selectCheese('Cheddar')">Cheddar</button>
+        <button class="ingredient-button" onclick="selectCheese('Swiss')">Swiss</button>
+        <button class="ingredient-button" onclick="selectCheese('Provolone')">Provolone</button>
+        <button class="ingredient-button" onclick="selectCheese('Colby Jack')">Colby Jack</button>
+        <button class="ingredient-button" onclick="selectCheese('Pepper Jack')">Pepper Jack</button>
+        <button class="ingredient-button" onclick="selectCheese('Mozzarella')">Mozzarella</button>
+        <button class="ingredient-button" onclick="selectCheese('Vegan Cheese')">Vegan Cheese</button>
     </div>
     <div class="menu-item">
-        <h3>BBQ Pulled Pork Sub</h3>
-        <p>Tender pulled pork with BBQ sauce, topped with coleslaw for a mouthwatering experience.</p>
+        <img src="Condiment Pic.jpeg" alt="Condiment Pic" width="880" height="320">
+
+        <h3>Select your Condiments:</h3>
+        <button class="ingredient-button" onclick="selectCondiment('Ranch')">Ranch</button>
+        <button class="ingredient-button" onclick="selectCondiment('Italian')">Italian</button>
+        <button class="ingredient-button" onclick="selectCondiment('Honey Mustard')">Honey Mustard</button>
+        <button class="ingredient-button" onclick="selectCondiment('Mayo')">Mayo</button>
+        <button class="ingredient-button" onclick="selectCondiment('Marinara')">Marinara</button>
+        <button class="ingredient-button" onclick="selectCondiment('BBQ Sauce')">BBQ Sauce</button>
+        <button class="ingredient-button" onclick="selectCondiment('Mustard')">Mustard</button>
+        <button class="ingredient-button" onclick="selectCondiment('Spicy Brown Mustard')">Spicy Brown Mustard</button>
+        <button class="ingredient-button" onclick="selectCondiment('Spicy Ranch')">Spicy Ranch</button>
+        <button class="ingredient-button" onclick="selectCondiment('Teriyaki')">Teriyaki</button>
+        <button class="ingredient-button" onclick="selectCondiment('Sriracha Sauce')">Sriracha Sauce</button>
+        <button class="ingredient-button" onclick="selectCondiment('Olive Oil')">Olive Oil</button>
+        <button class="ingredient-button" onclick="selectCondiment('Salt & Pepper')">Salt & Pepper</button>
+        <button class="ingredient-button" onclick="selectCondiment('Oregano')">Oregano</button>
     </div>
+
 </section>
 
 <section id="order">
@@ -49,13 +128,6 @@
         <label for="name">Your Name:</label>
         <input type="text" id="name" name="name" required>
 
-        <label for="sub">Choose Your Sub:</label>
-        <select id="sub" name="sub">
-            <option value="italian">Classic Italian Sub</option>
-            <option value="veggie">Veggie Delight Sub</option>
-            <option value="chicken">Chicken Bacon Ranch Sub</option>
-            <option value="bbq">BBQ Pulled Pork Sub</option>
-        </select>
 
         <label for="special">Special Requests:</label>
         <textarea id="special" name="special" rows="4" placeholder="Add any special instructions here..."></textarea>
@@ -67,7 +139,7 @@
 <section id="contact">
     <h2>Contact Us</h2>
     <p>Have a question or feedback? Get in touch with us below!</p>
-    <form action="submit_contact.php" method="POST">
+
         <label for="contact_name">Your Name:</label>
         <input type="text" id="contact_name" name="contact_name" required>
 
