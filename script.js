@@ -86,198 +86,8 @@ function selectBread(button) {
 
 
 
-function selectProtein(button) {
-    let buttons = button.parentElement.getElementsByClassName('Protein-button');
-    
-    
-    
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('selected');
-    }
-    
-    button.classList.add('selected');
-    
-    const selectedItem = button.textContent;
 
-    if (!isItemAlreadySelected(selectedItem)) {
-
-        const li = document.createElement('li');
-        li.textContent = selectedItem;
-
-        document.getElementById('custom-sub-list').appendChild(li);
-    }
-}
-
-function isItemAlreadySelected(item) {
-    const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].textContent === item) {
-            return true; 
-        }
-    }
-    return false;
-}
-
-
-function selectCheese(button) {
-    let buttons = button.parentElement.getElementsByClassName('Cheese-button');
-    
-    
-    
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('selected');
-    }
-    
-    button.classList.add('selected');
-    
-    const selectedItem = button.textContent;
-
-    if (!isItemAlreadySelected(selectedItem)) {
-
-        const li = document.createElement('li');
-        li.textContent = selectedItem;
-
-        document.getElementById('custom-sub-list').appendChild(li);
-    }
-}
-
-function isItemAlreadySelected(item) {
-    const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].textContent === item) {
-            return true; 
-        }
-    }
-    return false;
-}
-
-
-
-function selectCondiment(button) {
-    let buttons = button.parentElement.getElementsByClassName('Condiment-button');
-    
-
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('selected');
-    }
-    
-    button.classList.add('selected');
-    
-    const selectedItem = button.textContent;
-
-    if (!isItemAlreadySelected(selectedItem)) {
-
-        const li = document.createElement('li');
-        li.textContent = selectedItem;
-
-        document.getElementById('custom-sub-list').appendChild(li);
-    }
-}
-
-function isItemAlreadySelected(item) {
-    const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].textContent === item) {
-            return true; 
-        }
-    }
-    return false;
-}
-
-
-function selectTopping(button) {
-    button.classList.toggle('selected');
-
-    const selectedItem = button.textContent;
-
-    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
-        const li = document.createElement('li');
-        li.textContent = selectedItem;
-        document.getElementById('custom-sub-list').appendChild(li);
-    } 
-    else if (!button.classList.contains('selected')) {
-        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
-        for (let i = 0; i < listItems.length; i++) {
-            if (listItems[i].textContent === selectedItem) {
-                listItems[i].remove();
-                break;
-            }
-        }
-    }
-}
-
-
-
-function selectTopping(button) {
-    if (!breadSelected) {
-        alert("Please select a bread option first!");
-        return; 
-    }
-
-    button.classList.toggle('selected');
-
-    const selectedItem = button.textContent;
-
-    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
-        const li = document.createElement('li');
-        li.textContent = selectedItem;
-        document.getElementById('custom-sub-list').appendChild(li);
-    } 
-    else if (!button.classList.contains('selected')) {
-        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
-        for (let i = 0; i < listItems.length; i++) {
-            if (listItems[i].textContent === selectedItem) {
-                listItems[i].remove();
-                break;
-            }
-        }
-    }
-}
-
-function isItemAlreadySelected(item) {
-    const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].textContent === item) {
-            return true; 
-        }
-    }
-    return false;
-}
-
-
-
-
-let breadSelected = false; 
-let sizeSelected = false;
-
-function selectBread(button) {
-    let buttons = button.parentElement.getElementsByClassName('Bread-button');
-
-   
-    if (!breadSelected) {
-        let sizeButtons = document.querySelectorAll('.Size-button.selected');
-        sizeButtons.forEach(function (sizeButton) {
-            sizeButton.classList.remove('selected');
-        });
-        breadSelected = true;
-    }
-
-
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].classList.remove('selected');
-    }
-
- 
-    button.classList.add('selected');
-    const selectedItem = button.textContent;
-
-    if (!isItemAlreadySelected(selectedItem)) {
-        const li = document.createElement('li');
-        li.textContent = selectedItem;
-        document.getElementById('custom-sub-list').appendChild(li);
-    }
-}
-
+let sizeSelected = false
 function selectSize(button) {
     let buttons = button.parentElement.getElementsByClassName('Size-button');
 
@@ -313,4 +123,184 @@ function isItemAlreadySelected(item) {
         }
     }
     return false;
+}
+
+const sizeButtons = document.querySelectorAll('.Size-button');
+sizeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        selectSize(button);
+    });
+});
+
+const BreadButtons = document.querySelectorAll('.Bread-button');
+BreadButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        selectBread(button);
+    });
+});
+
+const ProteinButtons = document.querySelectorAll('.Protein-button');
+ProteinButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        selectProtein(button);
+    });
+});
+
+const CheeseButtons = document.querySelectorAll('.Cheese-button');
+CheeseButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        selectCheese(button);
+    });
+});
+
+const ToppingsButtons = document.querySelectorAll('.Toppings-button');
+ToppingsButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        selectToppings(button);
+    });
+});
+
+const CondimentButtons = document.querySelectorAll('.Condiment-button');
+CondimentButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        selectCondiment(button);
+    });
+});
+
+
+
+
+
+
+function selectBread(button) {
+    button.classList.toggle('selected');
+
+    const selectedItem = button.textContent;
+
+    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
+        const li = document.createElement('li');
+        li.textContent = selectedItem;
+        document.getElementById('custom-sub-list').appendChild(li);
+    } 
+    else if (!button.classList.contains('selected')) {
+        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === selectedItem) {
+                listItems[i].remove();
+                break;
+            }
+        }
+    }
+}
+
+
+
+    
+function selectTopping(button) {
+    button.classList.toggle('selected');
+
+    const selectedItem = button.textContent;
+
+    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
+        const li = document.createElement('li');
+        li.textContent = selectedItem;
+        document.getElementById('custom-sub-list').appendChild(li);
+    } 
+    else if (!button.classList.contains('selected')) {
+        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === selectedItem) {
+                listItems[i].remove();
+                break;
+            }
+        }
+    }
+}
+
+
+function selectSize(button) {
+    button.classList.toggle('selected');
+
+    const selectedItem = button.textContent;
+
+    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
+        const li = document.createElement('li');
+        li.textContent = selectedItem;
+        document.getElementById('custom-sub-list').appendChild(li);
+    } 
+    else if (!button.classList.contains('selected')) {
+        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === selectedItem) {
+                listItems[i].remove();
+                break;
+            }
+        }
+    }
+}
+
+
+function selectProtein(button) {
+    button.classList.toggle('selected');
+
+    const selectedItem = button.textContent;
+
+    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
+        const li = document.createElement('li');
+        li.textContent = selectedItem;
+        document.getElementById('custom-sub-list').appendChild(li);
+    } 
+    else if (!button.classList.contains('selected')) {
+        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === selectedItem) {
+                listItems[i].remove();
+                break;
+            }
+        }
+    }
+}
+
+
+function selectCheese(button) {
+    button.classList.toggle('selected');
+
+    const selectedItem = button.textContent;
+
+    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
+        const li = document.createElement('li');
+        li.textContent = selectedItem;
+        document.getElementById('custom-sub-list').appendChild(li);
+    } 
+    else if (!button.classList.contains('selected')) {
+        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === selectedItem) {
+                listItems[i].remove();
+                break;
+            }
+        }
+    }
+}
+
+
+function selectCondiment(button) {
+    button.classList.toggle('selected');
+
+    const selectedItem = button.textContent;
+
+    if (button.classList.contains('selected') && !isItemAlreadySelected(selectedItem)) {
+        const li = document.createElement('li');
+        li.textContent = selectedItem;
+        document.getElementById('custom-sub-list').appendChild(li);
+    } 
+    else if (!button.classList.contains('selected')) {
+        const listItems = document.getElementById('custom-sub-list').getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === selectedItem) {
+                listItems[i].remove();
+                break;
+            }
+        }
+    }
 }
